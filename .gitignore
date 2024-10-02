@@ -6,6 +6,10 @@
 .pnp.js
 .yarn/install-state.gz
 
+# Menyembunyikan file konfigurasi
+.env
+package.json
+
 # testing
 /coverage
 
@@ -15,6 +19,7 @@
 
 # production
 /build
+.pac
 
 # misc
 .DS_Store
