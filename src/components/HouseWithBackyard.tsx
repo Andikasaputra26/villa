@@ -43,21 +43,23 @@ const HouseWithBackyard: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-12 px-4 mt-8">
-      <h2 className="text-3xl font-bold mb-8 text-center md:text-left">
-        House With Backyard
-      </h2>
-      <div className="flex overflow-x-auto space-x-4 rounded-md cursor-pointer scrollbar-hide">
-        {houseWithBackyardProperties.map((property, index) => (
-          <div key={index} className="min-w-[300px] rounded-lg flex-shrink-0">
-            <PropertyCategorySection
-              image={property.image}
-              title={property.name}
-              location={property.location}
-              popular={property.popular}
-            />
-          </div>
-        ))}
+    <div className="w-full  dark:bg-gray-900">
+      <div className="container mx-auto py-12 px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center md:text-left dark:text-white">
+          House With Backyard
+        </h2>
+        <div className="flex overflow-x-auto space-x-4 rounded-md cursor-pointer scrollbar-hide">
+          {houseWithBackyardProperties.map((property, index) => (
+            <div key={index} className="min-w-[300px] rounded-lg flex-shrink-0">
+              <PropertyCategorySection
+                image={property.image}
+                title={property.name}
+                location={property.location}
+                popular={property.popular}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

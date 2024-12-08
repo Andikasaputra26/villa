@@ -56,25 +56,27 @@ export default function HomeDetails() {
   ];
 
   return (
-    <div className="container mx-auto py-12 px-4">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-center md:text-left mt-2">
-          Most Picked
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {properties.map((property) => (
-          <Link href={`/browse/${property.id}`} key={property.id}>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer">
-              <PropertyCard
-                image={property.image}
-                title={property.title}
-                price={property.price}
-                location={property.location}
-              />
-            </div>
-          </Link>
-        ))}
+    <div className="w-full dark:bg-gray-900">
+      <div className="container mx-auto py-12 px-4">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold text-center md:text-left mt-2">
+            Most Picked
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {properties.map((property) => (
+            <Link href={`/browse/${property.id}`} key={property.id}>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer">
+                <PropertyCard
+                  image={property.image}
+                  title={property.title}
+                  price={property.price}
+                  location={property.location}
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

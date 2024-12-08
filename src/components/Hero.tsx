@@ -5,7 +5,6 @@ import { Camera, Luggage, MapPin } from "lucide-react";
 import Image from "next/image";
 import Button from "./common/Button";
 import { motion } from "framer-motion";
-import { classNames } from "primereact/utils";
 
 export default function Hero() {
   const [number, setNumber] = useState<number>(0);
@@ -42,7 +41,7 @@ export default function Hero() {
   }, [category]);
 
   return (
-    <div className="dark:bg-gray-800 p-10">
+    <div className="dark:bg-gray-900 p-10">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <div className="flex flex-col w-full md:w-1/2 items-center md:items-start gap-4 text-black-primary dark:text-white mt-8 md:mt-0">
           {isLoading ? (

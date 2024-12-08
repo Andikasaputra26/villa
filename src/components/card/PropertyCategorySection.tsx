@@ -30,7 +30,7 @@ const PropertyCategorySection: React.FC<PropertyCardProps> = ({
   return (
     <div
       id="stories"
-      className="relative bg-white rounded-lg overflow-hidden shadow-md group"
+      className="relative bg-white rounded-lg overflow-hidden shadow-md group dark:bg-gray-700"
     >
       {isLoading ? (
         <div className="relative cursor-pointer overflow-hidden">
@@ -96,7 +96,7 @@ const PropertyCategorySection: React.FC<PropertyCardProps> = ({
                 className="text-yellow-500"
               />
             </motion.div>
-            <p className="text-gray-600 text-sm">{location}</p>
+            <p className="text-gray-600 text-sm dark:text-white">{location}</p>
           </div>
         )}
       </div>

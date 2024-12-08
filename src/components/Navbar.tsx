@@ -2,30 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const NavLink = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "Browse By",
-      href: "#browse",
-    },
-    {
-      name: "Stories",
-      href: "#stories",
-    },
-    {
-      name: "Agents",
-      href: "#agents",
-    },
+    { name: "Home", href: "/" },
+    { name: "Browse By", href: "#browse" },
+    { name: "Stories", href: "#stories" },
+    { name: "Agents", href: "#agents" },
   ];
 
   const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Toggle dark mode
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b shadow-lg">
@@ -37,18 +35,56 @@ export default function Navbar() {
             </h1>
           </div>
 
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             {NavLink.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className={`text-gray-800 font-sans dark:text-gray-300 hover:text-blue-500 px-3 py-2 rounded-md text-md font-medium ${
+                className={`text-gray-800 dark:text-gray-300 hover:text-blue-500 px-3 py-2 rounded-md text-md font-medium ${
                   pathName === link.href ? "text-blue-500" : ""
                 }`}
               >
                 {link.name}
               </Link>
             ))}
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="focus:outline-none text-gray-800 dark:text-gray-300 hover:text-blue-500"
+            >
+              {darkMode ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364 7.364l-1.414-1.414M7.05 7.05l-1.414-1.414m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.293 16.293A8 8 0 118 1.746m1.5 0V3.5M21 8h-1.5M3.5 8H2m9.75-6.75L12 2m-4.5 2.5l.75.75M4.5 19.5l.75-.75"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -105,6 +141,14 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+            {/* Dark Mode Toggle in Mobile */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="focus:outline-none text-gray-800 dark:text-white"
+            >
+              {darkMode ? "Light Mode" : "Dark Mode"}
+            </button>
           </div>
         </div>
       )}
