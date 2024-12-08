@@ -35,6 +35,7 @@ export default function Navbar() {
             </h1>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {NavLink.map((link, index) => (
               <Link
@@ -48,7 +49,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Dark Mode Toggle */}
+            {/* Dark Mode Toggle for Desktop */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="focus:outline-none text-gray-800 dark:text-gray-300 hover:text-blue-500"
@@ -87,6 +88,7 @@ export default function Navbar() {
             </button>
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -129,6 +131,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 fixed top-16 left-0 right-0 z-20 py-6 shadow-lg">
           <div className="space-y-4 text-center">
@@ -142,12 +145,42 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Dark Mode Toggle in Mobile */}
+            {/* Dark Mode Toggle for Mobile */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="focus:outline-none text-gray-800 dark:text-white"
+              className="focus:outline-none text-gray-800 dark:text-gray-300 hover:text-blue-500"
             >
-              {darkMode ? "Light Mode" : "Dark Mode"}
+              {darkMode ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364 7.364l-1.414-1.414M7.05 7.05l-1.414-1.414m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.293 16.293A8 8 0 118 1.746m1.5 0V3.5M21 8h-1.5M3.5 8H2m9.75-6.75L12 2m-4.5 2.5l.75.75M4.5 19.5l.75-.75"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </div>
