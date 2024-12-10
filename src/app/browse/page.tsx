@@ -59,7 +59,7 @@ export default function HomeDetails() {
     <div className="w-full dark:bg-gray-900">
       <div className="container mx-auto py-12 px-4">
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-center md:text-left mt-2 dark:text-white">
+          <h2 className="text-3xl mx-auto font-bold md:text-left mt-2 dark:text-white">
             Most Picked
           </h2>
         </div>
